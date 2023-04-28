@@ -1,0 +1,41 @@
+.scan_body{
+  display: flex;
+  flex-direction: column;
+  margin: 30px 100px;
+}
+
+.scan_body div:nth-of-type(1){
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  height: 60px;
+}
+
+.scan_body button:nth-of-type(1){
+  height: 60px;
+  margin-bottom: 30px;
+}
+
+.scan_card{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+#input_launch_scan{
+  width: 50%;
+  height: 100%;
+}
+
+#btn_launch_scan{
+  min-width: 400px;
+  height: 100%;
+}
+
+::ng-deep .mat-mdc-form-field-subscript-wrapper{
+  height: 0px;
+}
+.div_cards p{
+  font-size: 25px;
+}

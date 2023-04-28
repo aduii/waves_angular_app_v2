@@ -1,0 +1,29 @@
+<div class="reports_body">
+  <form class="search_report-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>
+        <i class="material-icons">
+          search
+        </i>Search</mat-label>
+      <input type="text" matInput [formControl]="myControl" >
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+  <div class="div_cards" *ngFor="let option of filteredOptions| async">
+    <mat-card class="reports_card" (click)="saveReport(option)">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>{{option.name}}</mat-card-title>
+          <mat-card-subtitle>Id: {{option.id}}</mat-card-subtitle>
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        Date: {{option.date}}
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

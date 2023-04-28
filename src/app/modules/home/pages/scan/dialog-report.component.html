@@ -1,0 +1,15 @@
+<div class="dialog-report_body">
+  <h1 mat-dialog-title>Report Id: {{IDialogReportArr[0].id}}</h1>
+  <div mat-dialog-content class="content">
+    <p>User</p>
+    <input [disabled]="true" value={{IDialogReportArr[0].user}} >
+    <p>*Report Name</p>
+    <input [disabled]="false" placeholder="Ex. Report Name">
+    <p>Date</p>
+    <input [disabled]="true" value={{IDialogReportArr[0].date}}>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button mat-dialog-close cdkFocusInitial>Save</button>
+  </div>
+</div>

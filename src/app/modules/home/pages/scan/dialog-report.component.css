@@ -1,0 +1,23 @@
+.dialog-report_body{
+  padding:30px;
+}
+
+.dialog-report_body .content{
+  display: flex;
+  flex-direction: column;
+
+}
+
+p{
+  margin:8px 0px;
+}
+
+input{
+  padding: 8px;
+  margin: 0px 0px 8px 0px;
+  font-size: 14px;
+}
+
+button{
+  margin-right: 8px;
+}

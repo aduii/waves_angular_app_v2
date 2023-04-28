@@ -1,0 +1,25 @@
+<div class="scan_body">
+  <div>
+    <mat-form-field class="example-full-width" id="input_launch_scan">
+      <mat-label>Scan IP</mat-label>
+      <input matInput placeholder="Ex. 10.192.10.100" value="">
+    </mat-form-field>
+    <button mat-flat-button color="primary" id="btn_launch_scan">Launch Scan</button>
+  </div>
+  <button mat-flat-button color="primary" (click)="openDialog('0ms', '0ms')">Generate Report</button>
+  <div class="div_cards" *ngFor="let card of vulnerabilitiesArr">
+    <mat-card class="scan_card">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>{{card.cveCode}}</mat-card-title>
+          <mat-card-subtitle>{{card.type}}</mat-card-subtitle>
+          <!-- <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"> -->
+          <p>{{card.impact| number: '1.1-1'}}</p>
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        {{card.description}}
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

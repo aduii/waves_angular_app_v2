@@ -1,0 +1,30 @@
+.history_body{
+  display: flex;
+  flex-direction: column;
+  margin: 30px 100px;
+  min-height: 100%;
+}
+
+.date-picker_search{
+  width: 300px;
+  margin-bottom: 30px;
+  min-height: 100%;
+}
+
+.demo-table {
+  width: 100%;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  border-color: currentColor;
+}
+
+.demo-row-is-clicked {
+  font-weight: bold;
+}
