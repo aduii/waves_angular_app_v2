@@ -22,8 +22,12 @@ export class LoginComponent implements OnInit{
     return this.loginForm.controls;
   }
 
-  redireccionar() {
+  renderSignUp() {
     this.router.navigate(['/signup']);
+  }
+
+  renderDashboard() {
+    this.router.navigate(['/dashboard']);
   }
 
   onSubmit() {

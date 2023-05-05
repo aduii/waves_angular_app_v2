@@ -18,8 +18,8 @@
         <small class="text-danger" *ngIf="loginForm.get('password')?.errors">Password is required</small>
       </div>
     </div>
-    <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Login</button>
-    <label class="goto_register">Don't have an account? <a (click)="redireccionar()" class="enlace-registro">Sign
+    <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary" (click)="renderDashboard()">Login</button>
+    <label class="goto_register">Don't have an account? <a (click)="renderSignUp()" class="enlace-registro">Sign
         up</a></label>
   </form>
 </div>

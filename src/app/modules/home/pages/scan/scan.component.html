@@ -18,7 +18,12 @@
         </mat-card-title-group>
       </mat-card-header>
       <mat-card-content>
-        {{card.description}}
+        <ng-container *ngIf="card.description!= ''">
+          Descripcion: {{card.description}}
+        </ng-container>
+        <ng-container *ngIf="card.exploit != ''">
+          <br>Exploit: <a href="{{card.exploit_link}}" target="_blank">{{card.exploit}}</a>
+        </ng-container>
       </mat-card-content>
     </mat-card>
   </div>

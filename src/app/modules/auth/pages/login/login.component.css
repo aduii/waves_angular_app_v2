@@ -52,6 +52,7 @@ button[type="submit"] {
   cursor: pointer;
 }
 
+
 /* Estilos para mensajes de error */
 .text-danger {
   color: red;

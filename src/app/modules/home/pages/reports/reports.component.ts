@@ -15,6 +15,8 @@ interface IVulnerability {
   type: string;
   cveCode: string;
   description: string;
+  exploit: string;
+  exploit_link: string;
   impact: number;
 }
 
@@ -29,7 +31,7 @@ export class ReportsComponent implements OnInit {
     { id: 1, name: 'Report Name 1', date: '2023-04-25' },
     { id: 2, name: 'Report Name 2', date: '2023-04-26' },
     { id: 3, name: 'Report Name 3', date: '2023-04-27' },
-    { id: 4, name: 'Report Name 4', date: '2023-04-28' },
+    { id: 4, name: 'Report Name 4', date: '2023-05-05' },
   ];
   filteredOptions!: Observable<IReport[]>;
 
@@ -53,31 +55,51 @@ export class ReportsComponent implements OnInit {
     var vulnerabilityBody:string= '';
     let vulnerabilityArray: IVulnerability[] = [
       {
-        type: 'DNS',
+        type: 'DOS',
         cveCode: 'CVE-2019-1234',
         description: "Apache Struts versions 2.3 to 2.3.34 and 2.5 to 2.5.16 suffer from possible Remote Code Execution when alwaysSelectFullNamespace is true (either by user or a plugin like Convention Plugin) and then: results are used with no namespace and in same time, its upper package have no or wildcard namespace and similar to results, same possibility when using url tag which doesn't have value and action set and in same time, its upper package have no or wildcard namespace.",
+        exploit:'Nginx 1.20.0 - Denial of Service (DOS)',
+        exploit_link: 'https://www.exploit-db.com/exploits/50973',
         impact: 9.8,
       },
       {
-        type: '',
+        type: 'DNS',
         cveCode: 'CVE-2019-1235',
         description: "Apache Struts versions 2.3 to 2.3.34 and 2.5 to 2.5.16 suffer from possible Remote Code Execution when alwaysSelectFullNamespace is true (either by user or a plugin like Convention Plugin) and then: results are used with no namespace and in same time, its upper package have no or wildcard namespace and similar to results, same possibility when using url tag which doesn't have value and action set and in same time, its upper package have no or wildcard namespace.",
+        exploit:'',
+        exploit_link: '',
         impact: 7.5,
       },
       {
         type: 'SQL',
         cveCode: 'CVE-2019-1236',
         description: "Apache Struts versions 2.3 to 2.3.34 and 2.5 to 2.5.16 suffer from possible Remote Code Execution when alwaysSelectFullNamespace is true (either by user or a plugin like Convention Plugin) and then: results are used with no namespace and in same time, its upper package have no or wildcard namespace and similar to results, same possibility when using url tag which doesn't have value and action set and in same time, its upper package have no or wildcard namespace.",
+        exploit:'',
+        exploit_link: '',
         impact: 2.0,
       },
     ];
 
     for (let vulnerabilityItem of vulnerabilityArray) {
+      var description_style = 'display:none;';
+      var exploit_style = 'display:none;';
+      var exploit_link_style = 'display:none;';
+
+      if(vulnerabilityItem.description != ''){
+        description_style = 'display:block;';
+      }
+      if(vulnerabilityItem.exploit != ''){
+        exploit_style = 'display:block;';
+      }
+      if(vulnerabilityItem.exploit_link != ''){
+        exploit_link_style = 'display:block;';
+      }
+
       vulnerabilityBody += `
       <p>CVE Code: ${vulnerabilityItem.cveCode}</p>
-      <blockquote><p>CVE Code: ${vulnerabilityItem.cveCode}</p></blockquote>
       <blockquote><p>Type: ${vulnerabilityItem.type}</p></blockquote>
-      <blockquote><p>Description: ${vulnerabilityItem.description}</p></blockquote>
+      <blockquote><p style="${description_style}">Description: ${vulnerabilityItem.description}</p></blockquote>
+      <blockquote><p style="${exploit_link_style}">Exploit: <a href="${vulnerabilityItem.exploit_link}" target="_blank">${vulnerabilityItem.exploit}</a> </p> </blockquote>
       <blockquote><p>Impact: ${vulnerabilityItem.impact}</p></blockquote>
       `
     }
@@ -98,7 +120,7 @@ export class ReportsComponent implements OnInit {
     </html>
     `;
     const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
-    saveAs(blob, 'archivo.html');
+    saveAs(blob, 'doc_reportid_'+option.id+'.html');
   }
 
   displayFn(report: IReport): string {

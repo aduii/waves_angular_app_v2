@@ -6,6 +6,8 @@ interface IVulnerabilityCard {
   type: string;
   cveCode: string;
   description: string;
+  exploit: string;
+  exploit_link: string;
   impact: number;
 }
 
@@ -18,21 +20,27 @@ export class ScanComponent implements OnInit {
   ngOnInit() {}
   vulnerabilitiesArr: IVulnerabilityCard[] = [
     {
-      type: 'DNS',
+      type: 'DOS',
       cveCode: 'CVE-2019-1234',
       description: 'DNS Vulnerability description',
+      exploit:'Nginx 1.20.0 - Denial of Service (DOS)',
+      exploit_link: 'https://www.exploit-db.com/exploits/50973',
       impact: 9.8,
     },
     {
-      type: 'SQL',
+      type: 'DNS',
       cveCode: 'CVE-2019-1235',
       description: 'SQL Vulnerability description',
+      exploit:'',
+      exploit_link:'',
       impact: 7.5,
     },
     {
       type: 'SQL',
       cveCode: 'CVE-2019-1236',
       description: 'SQL Vulnerability description',
+      exploit:'',
+      exploit_link:'',
       impact: 2.0,
     },
   ];
