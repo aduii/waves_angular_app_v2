@@ -20,7 +20,7 @@ export class DialogReport implements OnInit {
       id: 1,
       user: 'Alex Daniel Juep Sifuentes',
       reportName: 'Report 1 Nickname',
-      date: '2023-04-20',
+      date: '2023-05-15',
     },
   ];
   constructor(public dialogRef: MatDialogRef<DialogReport>) {}

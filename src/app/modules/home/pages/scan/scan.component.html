@@ -4,7 +4,7 @@
       <mat-label>Scan IP</mat-label>
       <input matInput placeholder="Ex. 10.192.10.100" value="">
     </mat-form-field>
-    <button mat-flat-button color="primary" id="btn_launch_scan">Launch Scan</button>
+    <button mat-flat-button color="primary" id="btn_launch_scan" (click)="onScan()">Launch Scan</button>
   </div>
   <button mat-flat-button color="primary" (click)="openDialog('0ms', '0ms')">Generate Report</button>
   <div class="div_cards" *ngFor="let card of vulnerabilitiesArr">
@@ -12,17 +12,21 @@
       <mat-card-header>
         <mat-card-title-group>
           <mat-card-title>{{card.cveCode}}</mat-card-title>
-          <mat-card-subtitle>{{card.type}}</mat-card-subtitle>
+          <!-- <mat-card-subtitle>{{card.type}}</mat-card-subtitle> -->
           <!-- <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"> -->
           <p>{{card.impact| number: '1.1-1'}}</p>
         </mat-card-title-group>
       </mat-card-header>
       <mat-card-content>
-        <ng-container *ngIf="card.description!= ''">
-          Descripcion: {{card.description}}
+        <ng-container *ngIf="card.description!= ''" >
+          <p style="text-align: justify;font-size: medium;">
+            Description:
+            <br>{{card.description}}</p>
         </ng-container>
         <ng-container *ngIf="card.exploit != ''">
-          <br>Exploit: <a href="{{card.exploit_link}}" target="_blank">{{card.exploit}}</a>
+          <p style="text-align: justify;font-size: medium;">
+            Exploit: <a href="{{card.exploit_link}}" target="_blank">{{card.exploit}}</a>
+          </p>
         </ng-container>
       </mat-card-content>
     </mat-card>
