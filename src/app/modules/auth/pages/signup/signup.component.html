@@ -1,5 +1,5 @@
 <div class="signup_body">
-  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="signUpForm" (ngSubmit)="ValidateDuplicateUser()">
     <h2>{{titulo}}</h2>
 
     <div class="form-group">
@@ -35,7 +35,7 @@
       <input type="password" formControlName="password2" class="form-control" id="password2" placeholder="**********">
       <div
       *ngIf="signUpForm.get('password2')?.invalid && (signUpForm.get('password2')?.dirty || signUpForm.get('password2')?.touched)">
-      <small class="text-danger" *ngIf="signUpForm.get('password2')?.errors">Repeat Password is required</small>
+      <small class="text-danger" *ngIf="signUpForm.get('password2')?.errors">Passwords don't match</small>
     </div>
     </div>
 

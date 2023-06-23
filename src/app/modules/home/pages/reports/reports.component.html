@@ -5,7 +5,7 @@
         <i class="material-icons">
           search
         </i>Search</mat-label>
-      <input type="text" matInput [formControl]="myControl" >
+      <input type="text" matInput [formControl]="myControl">
       <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
         <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
           {{option.name}}
@@ -22,6 +22,8 @@
         </mat-card-title-group>
       </mat-card-header>
       <mat-card-content>
+        Ip Scanned: {{option.ip}}
+        <br>
         Date: {{option.date}}
       </mat-card-content>
     </mat-card>

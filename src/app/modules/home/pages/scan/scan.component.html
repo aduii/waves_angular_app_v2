@@ -2,7 +2,7 @@
   <div>
     <mat-form-field class="example-full-width" id="input_launch_scan">
       <mat-label>Scan IP</mat-label>
-      <input matInput placeholder="Ex. 10.192.10.100" value="">
+      <input matInput placeholder="Ex. 10.192.10.100" [(ngModel)]="ip">
     </mat-form-field>
     <button mat-flat-button color="primary" id="btn_launch_scan" (click)="onScan()">Launch Scan</button>
   </div>
@@ -25,7 +25,7 @@
         </ng-container>
         <ng-container *ngIf="card.exploit != ''">
           <p style="text-align: justify;font-size: medium;">
-            Exploit: <a href="{{card.exploit_link}}" target="_blank">{{card.exploit}}</a>
+            Exploit: <a href="{{card.exploitLink}}" target="_blank">{{card.exploit}}</a>
           </p>
         </ng-container>
       </mat-card-content>

@@ -1,5 +1,5 @@
 <div class="login_body">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="loginForm" (ngSubmit)="getUserByEmail()">
     <h2>{{titulo}}</h2>
     <div class="form-group">
       <label for="email">Email</label>
@@ -18,7 +18,7 @@
         <small class="text-danger" *ngIf="loginForm.get('password')?.errors">Password is required</small>
       </div>
     </div>
-    <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary" (click)="renderDashboard()">Login</button>
+    <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary" >Login</button>
     <label class="goto_register">Don't have an account? <a (click)="renderSignUp()" class="enlace-registro">Sign
         up</a></label>
   </form>

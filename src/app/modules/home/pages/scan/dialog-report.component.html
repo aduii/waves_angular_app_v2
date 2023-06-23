@@ -1,15 +1,16 @@
 <div class="dialog-report_body">
-  <h1 mat-dialog-title>Report Id: {{IDialogReportArr[0].id}}</h1>
+  <h1 mat-dialog-title>Report</h1>
+  <!-- <h1 mat-dialog-title>Report Id: {{IDialogReportArr[0].id}}</h1> -->
   <div mat-dialog-content class="content">
     <p>User</p>
-    <input [disabled]="true" value={{IDialogReportArr[0].user}} >
+    <input [disabled]="true" [value]="IDialogReportArr[0].username" >
     <p>*Report Name</p>
-    <input [disabled]="false" placeholder="Ex. Report Name">
+    <input [disabled]="false" placeholder="Ex. Report Name" [(ngModel)]="IDialogReportArr[0].reportName">
     <p>Date</p>
-    <input [disabled]="true" value={{IDialogReportArr[0].date}}>
+    <input [disabled]="true" [value]="IDialogReportArr[0].date">
   </div>
   <div mat-dialog-actions>
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button mat-dialog-close cdkFocusInitial>Save</button>
+    <button mat-button mat-dialog-close cdkFocusInitial (click)="createReport()">Save</button>
   </div>
 </div>
