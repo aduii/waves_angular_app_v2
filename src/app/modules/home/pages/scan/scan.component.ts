@@ -19,6 +19,7 @@ interface IVulnerabilityCard {
 })
 export class ScanComponent implements OnInit {
   ip: string = '';
+  time: any;
 
   ngOnInit(): void {}
   vulnerabilitiesArr: IVulnerabilityCard[] = [];
@@ -26,6 +27,7 @@ export class ScanComponent implements OnInit {
   constructor(public dialog: MatDialog, private scanService: ScanService) {}
 
   onScan() {
+    const starTime = performance.now();
     this.scanService.getVulnerabilities(this.ip).subscribe(
       (data: any) => {
         // Maneja la respuesta del API aquí
@@ -36,6 +38,10 @@ export class ScanComponent implements OnInit {
         this.scanService.setScan({
           scan: this.vulnerabilitiesArr,
           });
+          const endTime = performance.now();
+          const aux_time = endTime - starTime;
+          this.time=aux_time
+          // console.log(`Time elapsed: ${aux_time} milliseconds`);
       },
       (error) => {
         // Maneja los errores aquí

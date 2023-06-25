@@ -7,6 +7,7 @@
     <button mat-flat-button color="primary" id="btn_launch_scan" (click)="onScan()">Launch Scan</button>
   </div>
   <button mat-flat-button color="primary" (click)="openDialog('0ms', '0ms')">Generate Report</button>
+  <p>Time elapsed: {{time}} milliseconds</p>
   <div class="div_cards" *ngFor="let card of vulnerabilitiesArr">
     <mat-card class="scan_card">
       <mat-card-header>
